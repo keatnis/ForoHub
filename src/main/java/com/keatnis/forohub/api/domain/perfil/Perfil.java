@@ -21,6 +21,10 @@ public class Perfil {
     private Long id;
     private String nombre;
 
-    @ManyToMany(mappedBy = "perfiles")
-    private List<Usuario> usuarios;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "perfil")
+//    private List<Usuario> usuario;
+
+    public Perfil(String nombre) {
+        this.nombre = nombre;
+    }
 }

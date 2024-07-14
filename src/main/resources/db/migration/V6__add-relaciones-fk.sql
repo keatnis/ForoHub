@@ -1,6 +1,19 @@
-ALTER TABLE usuario ADD CONSTRAINT fk_usuario_perfil FOREIGN KEY (perfil_id) REFERENCES perfil (id);
-ALTER TABLE topico ADD CONSTRAINT fk_topico_curso FOREIGN KEY (curso_id) REFERENCES curso(id);
-ALTER TABLE topico ADD CONSTRAINT fk_topico_usuario FOREIGN KEY (autor_id) REFERENCES usuario(id);
-ALTER TABLE respuesta ADD CONSTRAINT fk_respuesta_usuario FOREIGN KEY (autor_id) REFERENCES usuario(id);
-ALTER TABLE respuesta ADD CONSTRAINT fk_respuesta_topico FOREIGN KEY  (topico_id) REFERENCES topico(id);
+ alter table respuesta
+       add constraint fk_respuesta_topico
+       foreign key (topico_id)
+       references topico (id);
 
+ alter table respuesta
+       add constraint fk_respuesta_usuario
+       foreign key (usuario_id)
+       references usuario (id);
+
+ alter table topico
+       add constraint fk_topico_curso
+       foreign key (curso_id)
+       references curso (id);
+
+alter table topico
+        add constraint fk_topico_usuario
+         foreign key (usuario_id)
+         references usuario(id);

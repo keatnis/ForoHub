@@ -6,9 +6,9 @@ public record DatosDetalleTopico(
         Long id,
         String titulo,
         String mensaje,
-        LocalDateTime fecha
+        LocalDateTime fechaCreacion
 ) {
     public DatosDetalleTopico(Topico topico) {
-        this(topico.getId(), topico.getTitulo(), topico.getMensaje(), topico.getFecha());
+        this(topico.getId(), topico.getTitulo(), topico.getMensaje(), topico.getFechaCreacion());
     }
 }

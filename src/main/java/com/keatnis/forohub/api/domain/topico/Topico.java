@@ -4,19 +4,17 @@ import com.keatnis.forohub.api.domain.curso.Curso;
 import com.keatnis.forohub.api.domain.respuesta.Respuesta;
 import com.keatnis.forohub.api.domain.usuario.Usuario;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Table(name = "topico")
-@Entity(name = "Topico")
+@Table
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @EqualsAndHashCode(of = "id")
 public class Topico {
     @Id
@@ -24,24 +22,27 @@ public class Topico {
     private Long id;
     private String titulo;
     private String mensaje;
-    private LocalDateTime fecha;
+    private LocalDateTime fechaCreacion;
     private Boolean status;
 
     // autor --> usuario
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "curso_id")
     private Curso curso;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "topico",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "topico")
     private List<Respuesta> respuestas;
 
     public Topico(DatosRegistroTopico datos) {
         this.titulo = datos.titulo();
         this.mensaje = datos.mensaje();
-        this.fecha = datos.fecha();
+        this.fechaCreacion = datos.fechaCreacion();
         this.status = true;
-
+      //  this.usuario = usuario;
+     //   this.usuario = new Usuario(datos.idusuario());
         //falta agregar curso y usuario
     }
 }

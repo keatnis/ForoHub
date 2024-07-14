@@ -8,10 +8,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
-@Table(name = "respuesta")
-@Entity(name = "Respuesta")
+@Table
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -21,12 +22,14 @@ public class Respuesta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String mensaje;
-
+    private LocalDateTime fechaCreacion;
+    private String solucion;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "topico_id")
     private Topico topico;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-
 
 }

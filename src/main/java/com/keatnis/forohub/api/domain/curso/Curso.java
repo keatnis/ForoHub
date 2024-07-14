@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Table(name = "curso")
-@Entity(name = "Curso")
+@Table
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -26,4 +26,8 @@ public class Curso {
     @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY)
     private List<Topico> topicos;
 
+    public Curso(DatosRegistroCurso datos) {
+        this.nombre = datos.nombre();
+        this.categoria = datos.categoria();
+    }
 }

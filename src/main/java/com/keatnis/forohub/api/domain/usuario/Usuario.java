@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "usuario")
@@ -25,12 +26,20 @@ public class Usuario {
     private String email;
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Perfil> perfiles;
 
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-    private List<Topico> topicos;
-
-    @OneToMany(mappedBy = "usuario" )
+     private List<Topico> topicos;
+//
+//    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+//    private List<Perfil> perfil;
+//
+    @OneToMany(mappedBy = "usuario")
     private List<Respuesta> respuestas;
+
+    public Usuario(DatosRegistrarUsuario datos) {
+        this.nombre = datos.nombre();
+        this.email = datos.email();
+        this.password = datos.password();
+    }
+
 }
