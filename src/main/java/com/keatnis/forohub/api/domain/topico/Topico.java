@@ -41,8 +41,18 @@ public class Topico {
         this.mensaje = datos.mensaje();
         this.fechaCreacion = datos.fechaCreacion();
         this.status = true;
-      //  this.usuario = usuario;
-     //   this.usuario = new Usuario(datos.idusuario());
-        //falta agregar curso y usuario
+    }
+
+    public void actualizar (DatosActualizarTopico datos) {
+        if (datos.titulo() != null) {
+            this.titulo = datos.titulo();
+        }
+        if (datos.mensaje() != null) {
+            this.mensaje = datos.mensaje();
+        }
+        if (datos.fechaCreacion() != null) {
+            this.fechaCreacion = datos.fechaCreacion();
+        }
+
     }
 }

@@ -4,18 +4,20 @@ import com.keatnis.forohub.api.domain.curso.DatosDetalleCurso;
 import com.keatnis.forohub.api.domain.usuario.DatosDetalleUsuario;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-public record DatosDetalleTopico(
+public record DatosListadoTopico(
         Long id,
         String titulo,
         String mensaje,
         LocalDateTime fechaCreacion,
+        Boolean status,
         DatosDetalleUsuario autor,
         DatosDetalleCurso curso
 
 ) {
-    public DatosDetalleTopico(Topico topico) {
+    public DatosListadoTopico(Topico topico) {
         this(topico.getId(), topico.getTitulo(), topico.getMensaje(), topico.getFechaCreacion(),
-                new DatosDetalleUsuario(topico.getUsuario()), new DatosDetalleCurso(topico.getCurso()));
+                topico.getStatus(), new DatosDetalleUsuario(topico.getUsuario()), new DatosDetalleCurso(topico.getCurso()));
     }
 }
