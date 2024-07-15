@@ -7,10 +7,12 @@ import jakarta.validation.constraints.NotNull;
 public record DatosRegistrarUsuario(
         @NotBlank
         String nombre,
-        @NotBlank
-        @Email
+        @NotBlank(message = "el usuario no debe de estar en blanco")
+        String username,
+        @NotBlank(message = "el email no debe de estar vacio")
+        @Email(message = "verifique el email")
         String email,
-        @NotBlank
+        @NotBlank(message = "la contrasena no debe de estar en blanco")
         String password
 
 ) {

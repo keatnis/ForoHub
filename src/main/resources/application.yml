@@ -9,5 +9,12 @@ spring:
       hibernate:
         format_sql: true
 
-   # hibernate:
-    #  ddl-auto: update
+server:
+  error:
+    include-stacktrace: never
+
+api:
+  security:
+    jwt:
+      secret: ${JWT_SECRECT:2024}
+      expiration: 2

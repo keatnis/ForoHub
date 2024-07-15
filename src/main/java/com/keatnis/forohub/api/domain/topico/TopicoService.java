@@ -2,7 +2,7 @@ package com.keatnis.forohub.api.domain.topico;
 
 import com.keatnis.forohub.api.domain.curso.CursoRepository;
 import com.keatnis.forohub.api.domain.usuario.UsuarioRepository;
-import com.keatnis.forohub.api.errores.ErrorHandlerConsultas;
+import com.keatnis.forohub.api.infra.errores.ErrorHandlerConsultas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

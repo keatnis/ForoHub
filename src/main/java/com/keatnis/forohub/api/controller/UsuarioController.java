@@ -22,6 +22,7 @@ public class UsuarioController {
         @PostMapping
         @Transactional
         public ResponseEntity<DatosDetalleUsuario> registrar(@RequestBody @Valid DatosRegistrarUsuario datos){
+            System.out.println(datos);
             var response = service.guardarUser(datos);
             return ResponseEntity.ok(response);
         }
