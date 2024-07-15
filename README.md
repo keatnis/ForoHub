@@ -25,7 +25,7 @@ Para hacer la demostracion se uso la aplicacion de insomia, se puede descargar e
 ### Autenticacion/Autorizacion. 
 
 Para realizar las solicitudes a la API REST se debe de iniciar sesion con usuario y contraseña para autenticarse y obtener el JWT Token que debemos de ingresar en cada solicitud en el encabezado de 
-`Authorizacion`.
+`Authorization`.
 
 ![jwtToken](https://github.com/user-attachments/assets/0294e6f4-e0b9-4a7a-b672-422314cd5221)
 
@@ -38,7 +38,7 @@ Al mostrar este error es porque no se ha introducido el token.
 
 # Probando rutas implementadas: 
 
-  ### Topicos URL (http://localhost:8080/topicos)
+  ### Topicos: http://localhost:8080/topicos
   
 - ### `Crear nuevo topico`.
 
@@ -94,6 +94,7 @@ Al mostrar este error es porque no se ha introducido el token.
   ![image](https://github.com/user-attachments/assets/266284c8-df5f-4d81-870a-4084fed2a99c)
 
 - ### `Eliminar topico`.
+  
   La API cuenta con un endpoint para la eliminacion de un topico, para esto se usa el metodo deleteById del JpaRepository.
   Para eliminar un topico se debe de agregar el id en la uri por ejemplo: http://localhost:8080/topicos/3
   
@@ -103,16 +104,16 @@ Al mostrar este error es porque no se ha introducido el token.
 
   Eliminacion del topico:
   
-  🟢 Estatus: 204 Not Content
+    🟢 Estatus: 204 Not Content
+    
+    ![image](https://github.com/user-attachments/assets/9876e729-e29d-43ae-b976-2595dcbd60cd)
+    
+    Listado después de la eliminación del tópico con id=3:
+    
+    ![image](https://github.com/user-attachments/assets/b8478d48-51ba-4762-87c1-97a0e4c6f456)
   
-  ![image](https://github.com/user-attachments/assets/9876e729-e29d-43ae-b976-2595dcbd60cd)
-  
-  Listado después de la eliminación del tópico con id=3:
-  
-  ![image](https://github.com/user-attachments/assets/b8478d48-51ba-4762-87c1-97a0e4c6f456)
-
-  🔴 Estatus: 400 BAD REQUEST
- Si el id que se ingrese en la uri no está registrado en la base de datos se muestra el siguiente mensaje de error.
+    🔴 Estatus: 400 BAD REQUEST
+    Si el id que se ingrese en la uri no está registrado en la base de datos se muestra el siguiente mensaje de error.
 
  ![image](https://github.com/user-attachments/assets/2f72dd8a-209b-4f63-b4c6-e91deeeaf722)
 
