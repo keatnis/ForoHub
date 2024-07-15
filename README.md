@@ -9,11 +9,11 @@ Este proyecto es una API REST de un Foro desarrollada con SpringBoot que se cent
   
 # Funcionalidades
 
-- API con rutas implementadas siguiendo las mejores prácticas del modelo REST
-- Validaciones realizadas según las reglas de negocio
+- CRUD de Tópicos: Permite crear, actualizar,eliminar y listar los topicos.
+- Validaciones: Los datos de entrada son validados por Bean Validation.
 - Implementación de una base de datos relacional para la persistencia de la información
 - Servicio de autenticación/autorización para restringir el acceso a la información
-- Documentación con Swagger
+- Documentación con Swagger. Facilita la visualizacion de visualizacion y prueba de los endpoits.
   
 ### Diagrama de EER de la base de datos
 
