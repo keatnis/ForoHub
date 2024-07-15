@@ -42,10 +42,11 @@ public class UsuarioService {
     public String autenticarUsuario(DatosAuthUsuario datosAuthUsuario) {
         Authentication authToken = new UsernamePasswordAuthenticationToken(datosAuthUsuario.username(),
                 datosAuthUsuario.password());
-        if (!authToken.isAuthenticated()) {
-            throw new ErrorHandlerConsultas("verifique sus credenciales");
-        }
+
         var userAuth = authenticationManager.authenticate(authToken);
+//        if (!authToken.isAuthenticated()) {
+//            throw new ErrorHandlerConsultas("verifique sus credenciales");
+//        }
         return tokenService.generarToken((Usuario) userAuth.getPrincipal());
     }
 }

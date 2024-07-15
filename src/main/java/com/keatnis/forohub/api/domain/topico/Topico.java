@@ -39,7 +39,7 @@ public class Topico {
     public Topico(DatosRegistroTopico datos) {
         this.titulo = datos.titulo();
         this.mensaje = datos.mensaje();
-        this.fechaCreacion = datos.fechaCreacion();
+        this.fechaCreacion = LocalDateTime.now();
         this.status = true;
     }
 
@@ -50,9 +50,7 @@ public class Topico {
         if (datos.mensaje() != null) {
             this.mensaje = datos.mensaje();
         }
-        if (datos.fechaCreacion() != null) {
-            this.fechaCreacion = datos.fechaCreacion();
-        }
+        this.fechaCreacion = LocalDateTime.now();
 
     }
 }

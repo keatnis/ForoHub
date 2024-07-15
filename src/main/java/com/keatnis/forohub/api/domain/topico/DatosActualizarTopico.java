@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 
 public record DatosActualizarTopico(
         String titulo,
-        String mensaje,
-        LocalDateTime fechaCreacion
+        String mensaje
+  //      LocalDateTime fechaCreacion
 //        Long idCurso,
 //        Long idUsuario
 ) {
